@@ -1,5 +1,4 @@
 
-
 import de.bezier.guido.*;
 //Declare and initialize NUM_ROWS and NUM_COLS = 20
 public final static int NUM_ROWS = 20;
@@ -16,12 +15,13 @@ void setup ()
     // make the manager
     Interactive.make( this );
     //your code to declare and initialize buttons goes here
+    bombs = new 
     buttons = new MSButton[NUM_ROWS][NUM_COLS];
     for(int j = 0; j < 20;j++)
     {
         for(int i = 0; i < 20;i++)
         {
-            buttons.MSButton(j,i);
+            buttons[j][i] = new MSButton(j,i);
         }
     }
     
@@ -61,8 +61,8 @@ public class MSButton
     
     public MSButton ( int rr, int cc )
     {
-        // width = 400/NUM_COLS;
-        // height = 400/NUM_ROWS;
+        width = 400/NUM_COLS;
+        height = 400/NUM_ROWS;
         r = rr;
         c = cc; 
         x = c*width;
@@ -118,6 +118,3 @@ public class MSButton
         return numBombs;
     }
 }
-
-
-
