@@ -15,13 +15,13 @@ void setup ()
     // make the manager
     Interactive.make( this );
     //your code to declare and initialize buttons goes here
-    bombs = new 
+    bombs = new ArrayList <MSButton> ();
     buttons = new MSButton[NUM_ROWS][NUM_COLS];
-    for(int j = 0; j < 20;j++)
+    for(int row = 0; row < 20;row++)
     {
-        for(int i = 0; i < 20;i++)
+        for(int col = 0; col < 20;col++)
         {
-            buttons[j][i] = new MSButton(j,i);
+            buttons[row][col] = new MSButton(row,col);
         }
     }
     
@@ -30,6 +30,10 @@ void setup ()
 public void setBombs()
 {
     //your code
+    if(!bombs.contains(buttons[row][col]))
+    {
+        bombs.add(buttons[row][col]);
+    }
 }
 
 public void draw ()
