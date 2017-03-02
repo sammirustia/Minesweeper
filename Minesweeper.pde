@@ -40,7 +40,7 @@ public void setBombs()
    if(!bombs.contains(buttons[boxR][boxC]))
    {
         bombs.add(buttons[boxR][boxC]);
-        System.out.println(boxR + ", " + boxC);
+        //System.out.println(boxR + ", " + boxC);
    }
 }
 
@@ -95,8 +95,23 @@ public class MSButton
     
     public void mousePressed () 
     {
-        clicked = true;
+       clicked = true;
         //your code here
+       if(keyPressed == true)
+       {
+            marked = false;
+            if(marked == false)
+            {
+                clicked = false;
+            }
+       }
+       else if(buttons.contains(this))
+       {
+        
+       }
+           
+           
+
     }
 
     public void draw () 
@@ -121,7 +136,7 @@ public class MSButton
     public boolean isValid(int r, int c)
     {
         //your code here
-        if((r >= 0 && r < 20) && (c >= 0 && c < 20))
+        if((r >= 0 && r < NUM_ROWS) && (c >= 0 && c < NUM_COLS))
         {
             return true;
         }
@@ -131,6 +146,23 @@ public class MSButton
     {
         int numBombs = 0;
         //your code here
+        if(isValid(r,c+1) == true && bombs.contains(buttons[r][c+1]))
+            numBombs++;
+        if(isValid(r+1,c+1) == true && bombs.contains(buttons[r+1][c+1]))
+            numBombs++;
+        if(isValid(r-1,c+1) == true && bombs.contains(buttons[r-1][c+1]))
+            numBombs++;
+        if(isValid(r+1,c) == true && bombs.contains(buttons[r+1][c]))
+            numBombs++;
+        if(isValid(r-1,c) == true && bombs.contains(buttons[r-1][c]))
+            numBombs++;
+        if(isValid(r+1,c-1) == true && bombs.contains(buttons[r+1][c-1]))
+            numBombs++;
+        if(isValid(r,c-1) == true && bombs.contains(buttons[r][c-1]))
+            numBombs++;
+        if(isValid(r-1,c-1) == true && bombs.contains(buttons[r-1][c-1]))
+            numBombs++;
+        
         return numBombs;
     }
 }
