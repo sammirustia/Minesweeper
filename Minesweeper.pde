@@ -58,6 +58,8 @@ public boolean isWon()
 public void displayLosingMessage()
 {
     //your code here
+
+
 }
 public void displayWinningMessage()
 {
@@ -105,11 +107,14 @@ public class MSButton
                 clicked = false;
             }
        }
-       else if(buttons.contains(this))
+       else if(bombs.contains(this))
        {
-        
+            displayLosingMessage();
        }
+        else if(countBombs(r,c) > 0)
+        {
            
+        }  
            
 
     }
